@@ -281,31 +281,10 @@ public class MainActivity extends BaseActivity implements
 
   @Override
   public void onBackPressed() {
-    inCaseOfListFragment();
     super.onBackPressed();
   }
 
-  private void inCaseOfListFragment() {
-    // ListFragment
-    Fragment fragment = checkFragmentInstance(R.id.fragment_container, ListFragment.class);
-    if (fragment != null) {
-      // Before exiting from app the navigation drawer is opened
-      boolean isNavdrawerOnExitSetted = Prefs.getBoolean("settings_navdrawer_on_exit", false);
-      boolean isDrawerLayoutInExistence = getDrawerLayout() != null;
-      boolean isDrawerOpened = getDrawerLayout().isDrawerOpen(GravityCompat.START);
-      if (isNavdrawerOnExitSetted && isDrawerLayoutInExistence && !isDrawerOpened) {
-        getDrawerLayout().openDrawer(GravityCompat.START);
-      } else if (!isNavdrawerOnExitSetted && isDrawerLayoutInExistence && isDrawerOpened) {
-        getDrawerLayout().closeDrawer(GravityCompat.START);
-      } else {
-        if (!((ListFragment) fragment).closeFab()) {
-          setPasswordAcceptedFalse();
-        }
-      }
-    }
-  }
-
-  private void setPasswordAcceptedFalse() {
+  protected void setPasswordAcceptedFalse() {
     isPasswordAccepted = false;
   }
 

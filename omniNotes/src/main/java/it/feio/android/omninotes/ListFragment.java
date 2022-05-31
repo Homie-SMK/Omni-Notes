@@ -292,7 +292,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   }
 
 
-  boolean closeFab() {
+  public boolean closeFab() {
     if (fab != null && fab.isExpanded()) {
       fab.performToggle();
       return true;
