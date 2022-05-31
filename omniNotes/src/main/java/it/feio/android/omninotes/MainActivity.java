@@ -270,7 +270,7 @@ public class MainActivity extends BaseActivity implements
   /**
    * Checks if allocated fragment is of the required type and then returns it or returns null
    */
-  private Fragment checkFragmentInstance(int id, Object instanceClass) {
+  protected Fragment checkFragmentInstance(int id, Object instanceClass) {
     Fragment result = null;
     Fragment fragment = getFragmentManagerInstance().findFragmentById(id);
     if (fragment != null && instanceClass.equals(fragment.getClass())) {
@@ -281,23 +281,9 @@ public class MainActivity extends BaseActivity implements
 
   @Override
   public void onBackPressed() {
-    inCaseOfSketchFragment();
     inCaseOfDetailFragment();
     inCaseOfListFragment();
     super.onBackPressed();
-  }
-
-  private void inCaseOfSketchFragment() {
-    // SketchFragment
-    Fragment fragment = checkFragmentInstance(R.id.fragment_container, SketchFragment.class);
-    if (fragment != null) {
-      ((SketchFragment) fragment).save();
-
-      // Removes forced portrait orientation for this fragment
-      setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-
-      getFragmentManagerInstance().popBackStack();
-    }
   }
 
   private void inCaseOfDetailFragment() {
