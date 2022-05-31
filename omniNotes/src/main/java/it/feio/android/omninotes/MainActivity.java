@@ -281,18 +281,8 @@ public class MainActivity extends BaseActivity implements
 
   @Override
   public void onBackPressed() {
-    inCaseOfDetailFragment();
     inCaseOfListFragment();
     super.onBackPressed();
-  }
-
-  private void inCaseOfDetailFragment() {
-    // DetailFragment
-    Fragment fragment = checkFragmentInstance(R.id.fragment_container, DetailFragment.class);
-    if (fragment != null) {
-      ((DetailFragment) fragment).goBack = true;
-      ((DetailFragment) fragment).saveAndExit((DetailFragment) fragment);
-    }
   }
 
   private void inCaseOfListFragment() {
