@@ -31,7 +31,7 @@ import java.util.Objects;
 import org.apache.commons.lang3.StringUtils;
 
 
-public class NoteInfosActivity extends Activity {
+public class  NoteInfosActivity extends Activity {
 
   private ActivityNoteInfosBinding binding;
 

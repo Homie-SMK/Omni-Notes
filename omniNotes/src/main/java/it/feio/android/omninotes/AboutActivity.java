@@ -21,7 +21,7 @@ import android.webkit.WebView;
 import androidx.appcompat.widget.Toolbar;
 
 
-public class AboutActivity extends BaseActivity {
+public class  AboutActivity extends BaseActivity {
 
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

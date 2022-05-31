@@ -202,7 +202,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
 
   private FragmentDetailBinding binding;
 
-  boolean goBack = false;
+  public boolean goBack = false;
   private ExpandableHeightGridView mGridView;
   private View toggleChecklistView;
   private Uri attachmentUri;
