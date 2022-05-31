@@ -67,6 +67,7 @@ import it.feio.android.omninotes.models.Attachment;
 import it.feio.android.omninotes.models.Category;
 import it.feio.android.omninotes.models.Note;
 import it.feio.android.omninotes.models.ONStyle;
+import it.feio.android.omninotes.strategies.onBackPressedNavigator;
 import it.feio.android.omninotes.utils.FileProviderHelper;
 import it.feio.android.omninotes.utils.Navigation;
 import it.feio.android.omninotes.utils.PasswordHelper;
@@ -281,6 +282,22 @@ public class MainActivity extends BaseActivity implements
 
   @Override
   public void onBackPressed() {
+    onBackPressedNavigator navigator;
+    Fragment fragment = checkFragmentInstance(R.id.fragment_container, DetailFragment.class);
+    if (fragment != null) {
+      navigator = new onBackPressedNavigator(DetailFragment.class);
+      navigator.process();
+    }
+    fragment = checkFragmentInstance(R.id.fragment_container, SketchFragment.class);
+    if (fragment != null) {
+      navigator = new onBackPressedNavigator(SketchFragment.class);
+      navigator.process();
+    }
+    fragment = checkFragmentInstance(R.id.fragment_container, ListFragment.class);
+    if (fragment != null) {
+      navigator = new onBackPressedNavigator(ListFragment.class);
+      navigator.process();
+    }
     super.onBackPressed();
   }
 
