@@ -7,18 +7,28 @@ import androidx.fragment.app.Fragment;
 import it.feio.android.omninotes.MainActivity;
 import it.feio.android.omninotes.R;
 import it.feio.android.omninotes.SketchFragment;
+import it.feio.android.omninotes.factory.FragmentStrategy;
 
-public class SketchFragmentStrategy extends MainActivity implements onBackPressedStrategy {
+public class SketchFragmentStrategy extends FragmentStrategy implements onBackPressedStrategy {
+    private MainActivity mMainActivity;
+
     public void process() {
         // SketchFragment
-        Fragment fragment = checkFragmentInstance(R.id.fragment_container, SketchFragment.class);
+        Fragment fragment = mMainActivity.checkFragmentInstance(R.id.fragment_container, SketchFragment.class);
         if (fragment != null) {
             ((SketchFragment) fragment).save();
 
             // Removes forced portrait orientation for this fragment
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+            mMainActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 
-            getSupportFragmentManager().popBackStack();
+            mMainActivity.getSupportFragmentManager().popBackStack();
         }
+    }
+
+    private MainActivity getMainActivity() {
+        if(mMainActivity == null){
+            mMainActivity = new MainActivity();
+        }
+        return mMainActivity;
     }
 }

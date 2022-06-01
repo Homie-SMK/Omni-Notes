@@ -8,26 +8,35 @@ import com.pixplicity.easyprefs.library.Prefs;
 import it.feio.android.omninotes.ListFragment;
 import it.feio.android.omninotes.MainActivity;
 import it.feio.android.omninotes.R;
+import it.feio.android.omninotes.factory.FragmentStrategy;
 
-public class ListFragmentStrategy extends MainActivity implements onBackPressedStrategy{
+public class ListFragmentStrategy extends FragmentStrategy implements onBackPressedStrategy{
+    private MainActivity mMainActivity;
     @Override
     public void process() {
         // ListFragment
-        Fragment fragment = checkFragmentInstance(R.id.fragment_container, ListFragment.class);
+        Fragment fragment = mMainActivity.checkFragmentInstance(R.id.fragment_container, ListFragment.class);
         if (fragment != null) {
             // Before exiting from app the navigation drawer is opened
             boolean isNavdrawerOnExitSetted = Prefs.getBoolean("settings_navdrawer_on_exit", false);
-            boolean isDrawerLayoutInExistence = getDrawerLayout() != null;
-            boolean isDrawerOpened = getDrawerLayout().isDrawerOpen(GravityCompat.START);
+            boolean isDrawerLayoutInExistence = mMainActivity.getDrawerLayout() != null;
+            boolean isDrawerOpened = mMainActivity.getDrawerLayout().isDrawerOpen(GravityCompat.START);
             if (isNavdrawerOnExitSetted && isDrawerLayoutInExistence && !isDrawerOpened) {
-                getDrawerLayout().openDrawer(GravityCompat.START);
+                mMainActivity.getDrawerLayout().openDrawer(GravityCompat.START);
             } else if (!isNavdrawerOnExitSetted && isDrawerLayoutInExistence && isDrawerOpened) {
-                getDrawerLayout().closeDrawer(GravityCompat.START);
+                mMainActivity.getDrawerLayout().closeDrawer(GravityCompat.START);
             } else {
                 if (!((ListFragment) fragment).closeFab()) {
-                    setPasswordAcceptedFalse();
+                    mMainActivity.setPasswordAcceptedFalse();
                 }
             }
         }
+    }
+
+    private MainActivity getMainActivity() {
+        if(mMainActivity == null){
+            mMainActivity = new MainActivity();
+        }
+        return mMainActivity;
     }
 }

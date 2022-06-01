@@ -288,7 +288,7 @@ public class MainActivity extends BaseActivity implements
     super.onBackPressed();
   }
 
-  protected void setPasswordAcceptedFalse() {
+  public void setPasswordAcceptedFalse() {
     isPasswordAccepted = false;
   }
 
