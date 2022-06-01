@@ -10,22 +10,23 @@ import it.feio.android.omninotes.MainActivity;
 
 public class onBackPressedManager {
     private MainActivity mMainActivity;
+    private Fragment mFragment;
 
     public void process(int id) {
         MainActivity mainActivity = getMainActivity();
         onBackPressedNavigator navigator;
-        Fragment fragment = mainActivity.checkFragmentInstance(id, DetailFragment.class);
-        if (fragment != null) {
+        mFragment = mainActivity.checkFragmentInstance(id, DetailFragment.class);
+        if (mFragment != null) {
             navigator = new onBackPressedNavigator(DetailFragment.class);
             navigator.process();
         }
-        fragment = mainActivity.checkFragmentInstance(id, SketchFragment.class);
-        if (fragment != null) {
+        mFragment = mainActivity.checkFragmentInstance(id, SketchFragment.class);
+        if (mFragment != null) {
             navigator = new onBackPressedNavigator(SketchFragment.class);
             navigator.process();
         }
-        fragment = mainActivity.checkFragmentInstance(id, ListFragment.class);
-        if (fragment != null) {
+        mFragment = mainActivity.checkFragmentInstance(id, ListFragment.class);
+        if (mFragment != null) {
             navigator = new onBackPressedNavigator(ListFragment.class);
             navigator.process();
         }
