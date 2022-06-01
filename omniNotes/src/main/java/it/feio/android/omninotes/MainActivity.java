@@ -62,6 +62,7 @@ import it.feio.android.omninotes.databinding.ActivityMainBinding;
 import it.feio.android.omninotes.db.DbHelper;
 import it.feio.android.omninotes.helpers.LogDelegate;
 import it.feio.android.omninotes.helpers.NotesHelper;
+import it.feio.android.omninotes.helpers.onBackPressedManager;
 import it.feio.android.omninotes.intro.IntroActivity;
 import it.feio.android.omninotes.models.Attachment;
 import it.feio.android.omninotes.models.Category;
@@ -282,7 +283,8 @@ public class MainActivity extends BaseActivity implements
 
   @Override
   public void onBackPressed() {
-    // onBackPressedManager manager = new onBackPressedManager
+    onBackPressedManager manager = new onBackPressedManager();
+    manager.process(R.id.fragment_container);
     super.onBackPressed();
   }
 

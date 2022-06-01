@@ -15,17 +15,17 @@ public class onBackPressedManager {
     public void process(int id) {
         MainActivity mainActivity = getMainActivity();
         onBackPressedNavigator navigator;
-        Fragment fragment = mainActivity.checkFragmentInstance(R.id.fragment_container, DetailFragment.class);
+        Fragment fragment = mainActivity.checkFragmentInstance(id, DetailFragment.class);
         if (fragment != null) {
             navigator = new onBackPressedNavigator(DetailFragment.class);
             navigator.process();
         }
-        fragment = mainActivity.checkFragmentInstance(R.id.fragment_container, SketchFragment.class);
+        fragment = mainActivity.checkFragmentInstance(id, SketchFragment.class);
         if (fragment != null) {
             navigator = new onBackPressedNavigator(SketchFragment.class);
             navigator.process();
         }
-        fragment = mainActivity.checkFragmentInstance(R.id.fragment_container, ListFragment.class);
+        fragment = mainActivity.checkFragmentInstance(id, ListFragment.class);
         if (fragment != null) {
             navigator = new onBackPressedNavigator(ListFragment.class);
             navigator.process();
