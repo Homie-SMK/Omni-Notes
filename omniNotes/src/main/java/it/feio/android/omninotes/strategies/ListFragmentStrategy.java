@@ -34,7 +34,7 @@ public class ListFragmentStrategy extends FragmentStrategy implements onBackPres
     }
 
     @Override
-    public FragmentStrategy createStrategy() {
+    public onBackPressedStrategy createStrategy() {
         return new ListFragmentStrategy();
     }
 

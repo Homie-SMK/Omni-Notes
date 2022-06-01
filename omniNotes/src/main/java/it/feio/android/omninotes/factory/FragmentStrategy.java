@@ -1,7 +1,8 @@
 package it.feio.android.omninotes.factory;
 
-public class FragmentStrategy {
-    public FragmentStrategy createStrategy() {
-        return new FragmentStrategy();
-    }
+import it.feio.android.omninotes.strategies.DetailFragmentStrategy;
+import it.feio.android.omninotes.strategies.onBackPressedStrategy;
+
+abstract public class FragmentStrategy {
+    abstract public onBackPressedStrategy createStrategy();
 }
