@@ -271,7 +271,7 @@ public class MainActivity extends BaseActivity implements
   /**
    * Checks if allocated fragment is of the required type and then returns it or returns null
    */
-  protected Fragment checkFragmentInstance(int id, Object instanceClass) {
+  public Fragment checkFragmentInstance(int id, Object instanceClass) {
     Fragment result = null;
     Fragment fragment = getFragmentManagerInstance().findFragmentById(id);
     if (fragment != null && instanceClass.equals(fragment.getClass())) {
@@ -282,22 +282,7 @@ public class MainActivity extends BaseActivity implements
 
   @Override
   public void onBackPressed() {
-    onBackPressedNavigator navigator;
-    Fragment fragment = checkFragmentInstance(R.id.fragment_container, DetailFragment.class);
-    if (fragment != null) {
-      navigator = new onBackPressedNavigator(DetailFragment.class);
-      navigator.process();
-    }
-    fragment = checkFragmentInstance(R.id.fragment_container, SketchFragment.class);
-    if (fragment != null) {
-      navigator = new onBackPressedNavigator(SketchFragment.class);
-      navigator.process();
-    }
-    fragment = checkFragmentInstance(R.id.fragment_container, ListFragment.class);
-    if (fragment != null) {
-      navigator = new onBackPressedNavigator(ListFragment.class);
-      navigator.process();
-    }
+    // onBackPressedManager manager = new onBackPressedManager
     super.onBackPressed();
   }
 
