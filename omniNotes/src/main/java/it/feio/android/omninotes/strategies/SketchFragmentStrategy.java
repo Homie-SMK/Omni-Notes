@@ -25,6 +25,11 @@ public class SketchFragmentStrategy extends FragmentStrategy implements onBackPr
         }
     }
 
+    @Override
+    public FragmentStrategy createStrategy() {
+        return new ListFragmentStrategy();
+    }
+
     private MainActivity getMainActivity() {
         if(mMainActivity == null){
             mMainActivity = new MainActivity();

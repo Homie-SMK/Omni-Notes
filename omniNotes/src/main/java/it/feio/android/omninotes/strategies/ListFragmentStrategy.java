@@ -33,6 +33,11 @@ public class ListFragmentStrategy extends FragmentStrategy implements onBackPres
         }
     }
 
+    @Override
+    public FragmentStrategy createStrategy() {
+        return new ListFragmentStrategy();
+    }
+
     private MainActivity getMainActivity() {
         if(mMainActivity == null){
             mMainActivity = new MainActivity();

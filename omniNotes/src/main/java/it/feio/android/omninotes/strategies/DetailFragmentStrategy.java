@@ -20,6 +20,11 @@ public class DetailFragmentStrategy extends FragmentStrategy implements onBackPr
         }
     }
 
+    @Override
+    public FragmentStrategy createStrategy() {
+        return new DetailFragmentStrategy();
+    }
+
     private MainActivity getMainActivity() {
         if(mMainActivity == null){
             mMainActivity = new MainActivity();
