@@ -26,7 +26,7 @@ public class SketchFragmentStrategy extends FragmentStrategy implements onBackPr
     }
 
     @Override
-    public onBackPressedStrategy createStrategy() {
+    public onBackPressedStrategy createOnBackPressedStrategy() {
         return new ListFragmentStrategy();
     }
 

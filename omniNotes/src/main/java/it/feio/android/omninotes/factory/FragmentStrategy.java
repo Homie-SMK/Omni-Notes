@@ -4,5 +4,5 @@ import it.feio.android.omninotes.strategies.DetailFragmentStrategy;
 import it.feio.android.omninotes.strategies.onBackPressedStrategy;
 
 abstract public class FragmentStrategy {
-    abstract public onBackPressedStrategy createStrategy();
+    abstract public onBackPressedStrategy createOnBackPressedStrategy();
 }
