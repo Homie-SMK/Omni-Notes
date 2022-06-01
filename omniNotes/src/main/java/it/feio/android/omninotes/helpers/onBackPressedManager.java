@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment;
 
 import it.feio.android.omninotes.DetailFragment;
 import it.feio.android.omninotes.ListFragment;
-import it.feio.android.omninotes.R;
 import it.feio.android.omninotes.SketchFragment;
 import it.feio.android.omninotes.strategies.onBackPressedNavigator;
 import it.feio.android.omninotes.MainActivity;
