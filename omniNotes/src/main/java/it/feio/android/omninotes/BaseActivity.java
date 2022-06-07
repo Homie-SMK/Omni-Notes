@@ -123,21 +123,22 @@ public class BaseActivity extends AppCompatActivity {
 	    if (askForPassword) {
 	      PasswordHelper.requestPassword(mActivity, mPasswordValidator);
 	    } else {
-	    	mPasswordValidator(mPasswordValidator);    }
-	  }
-	private void mPasswordValidator(final PasswordValidator mPasswordValidator) {
-		mPasswordValidator.onPasswordValidated(PasswordValidator.Result.SUCCEED);
-	}
-  public boolean updateNavigation(String nav) {
-    boolean isNavEqualsTmp = nav.equals(navigationTmp);
-    boolean isnavEqualsNavi = Navigation.getNavigationText().equals(nav);
-    if (isNavEqualsTmp || (navigationTmp == null && isnavEqualsNavi)) {
-      return false;
-    }
-    Prefs.edit().putString(PREF_NAVIGATION, nav).apply();
-    navigation = nav;
-    navigationTmp = null;
-    return true;
+	    	mPasswordValidator(mPasswordValidator);
+        }
+   }
+   private void mPasswordValidator(final PasswordValidator mPasswordValidator) {
+     mPasswordValidator.onPasswordValidated(PasswordValidator.Result.SUCCEED);
+   }
+   public boolean updateNavigation(String nav) {
+     boolean isNavEqualsTmp = nav.equals(navigationTmp);
+     boolean isnavEqualsNavi = Navigation.getNavigationText().equals(nav);
+     if (isNavEqualsTmp || (navigationTmp == null && isnavEqualsNavi)) {
+       return false;
+     }
+     Prefs.edit().putString(PREF_NAVIGATION, nav).apply();
+     navigation = nav;
+     navigationTmp = null;
+     return true;
   }
 
 
