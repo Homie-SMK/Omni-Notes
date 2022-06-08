@@ -28,6 +28,6 @@ public class FileHelperTest extends BaseUnitTest {
         assertEquals(expected, FileHelper.getFileExtension(testFileName));
         testFileName = "";
         expected = "";
-        assertEquals(expected, FileHelper.getFileExtension("null"));
+        assertEquals(expected, FileHelper.getFileExtension(testFileName));
     }
 }
