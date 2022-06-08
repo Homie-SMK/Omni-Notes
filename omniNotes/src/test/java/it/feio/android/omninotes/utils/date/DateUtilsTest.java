@@ -17,6 +17,7 @@
 
 package it.feio.android.omninotes.utils.date;
 
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -33,7 +34,6 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({DateUtils.class})
@@ -102,7 +102,7 @@ public class DateUtilsTest {
 
   @Test
   public void getString_longSignature() {
-    String expectedDateAsString = "16/03/2020";
+    String expectedDateAsString = "17/03/2020";
     long expectedDate = 1584371565000L;
     String format = "dd/MM/yyyy";
     assertEquals(expectedDateAsString, DateUtils.getString(expectedDate, format));
@@ -134,5 +134,19 @@ public class DateUtilsTest {
     assertEquals(calendar.get(Calendar.HOUR_OF_DAY), 15);
     assertEquals(calendar.get(Calendar.MINUTE), 15);
     assertEquals(calendar.get(Calendar.SECOND), 0);
+  }
+
+  @Test
+  public void getCalendarTest() {
+    long today = Calendar.getInstance().getTimeInMillis();
+    Calendar expected = Calendar.getInstance();
+    expected.setTimeInMillis(today);
+    Calendar ret = DateUtils.getCalendar(today);
+    assertEquals(expected.get(Calendar.YEAR), ret.get(Calendar.YEAR));
+    assertEquals(expected.get(Calendar.MONTH), ret.get(Calendar.MONTH));
+    assertEquals(expected.get(Calendar.DATE), ret.get(Calendar.DATE));
+    assertEquals(expected.get(Calendar.HOUR_OF_DAY), ret.get(Calendar.HOUR_OF_DAY));
+    assertEquals(expected.get(Calendar.MINUTE), ret.get(Calendar.MINUTE));
+    assertEquals(expected.get(Calendar.SECOND), ret.get(Calendar.SECOND));
   }
 }
