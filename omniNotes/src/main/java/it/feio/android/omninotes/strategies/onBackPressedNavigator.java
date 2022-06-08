@@ -1,11 +1,7 @@
 package it.feio.android.omninotes.strategies;
 
-import androidx.fragment.app.Fragment;
-
 import it.feio.android.omninotes.DetailFragment;
 import it.feio.android.omninotes.ListFragment;
-import it.feio.android.omninotes.MainActivity;
-import it.feio.android.omninotes.R;
 import it.feio.android.omninotes.SketchFragment;
 
 public class onBackPressedNavigator {
@@ -24,8 +20,11 @@ public class onBackPressedNavigator {
     public void process() {
         if(mStrategy == null){
             return;
-        } else {
-            mStrategy.process();
         }
+        mStrategy.process();
+    }
+
+    public onBackPressedStrategy getStrategy() {
+        return this.mStrategy;
     }
 }
