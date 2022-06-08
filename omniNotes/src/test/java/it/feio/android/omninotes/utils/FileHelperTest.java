@@ -20,4 +20,11 @@ public class FileHelperTest extends BaseUnitTest {
         String expected = "test";
         assertEquals(FileHelper.getFilePrefix(testFileName), expected);
     }
+
+    @Test
+    public void getFileExtensionTest() {
+        String testFileName = "test.exe";
+        String expected = "test";
+        assertEquals(FileHelper.getFileExtension(testFileName), expected);
+    }
 }
